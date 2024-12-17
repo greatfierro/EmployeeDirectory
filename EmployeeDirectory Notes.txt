@@ -1,0 +1,11 @@
+[X] Implment Model
+
+[X] Implement simple data layer
+
+[] Create index main view
+
+
+[] Create Employee View
+
+
+[] Add links 

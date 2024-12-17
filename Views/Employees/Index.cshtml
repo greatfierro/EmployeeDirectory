@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EmployeeDirectory.DataLayer.Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    th,td{
+        white-space:nowrap;
+    }
+</style>
+
+<h2>Employee List</h2>
+
+
+<div class="container-sm">
+    @if (Model.Any())
+    {
+        <table id="empTable" class="table table-bordered table-hover w-auto">
+            <thead class="table-light">
+            <tr>
+                <th class="text-nowrap ">Name</th>
+                <th class="text-nowrap">Date Hired</th>
+                <th class="text-nowrap text-center" data-orderable="false"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var e in @Model)
+            {
+                <tr>
+                    <td class="text-nowrap">@e.Name</td>
+                    <td class="text-nowrap">@e.DateHired.ToString("MM/dd/yyyy")</td>
+                    <td class="text-nowrap text-center" style="width: 1%;">
+                        <a href="@Url.Action("Details", "Employees", new { id = e.Id })"  class="btn btn-primary btn-sm">
+                            Details
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+
+    }
+    else
+    {
+        <p>No Employees currently in the Directory.</p>
+    }
+
+</div>
+
+<script>
+    $(document).ready( function () {
+$('#empTable').DataTable();
+} );
+</script>
+
