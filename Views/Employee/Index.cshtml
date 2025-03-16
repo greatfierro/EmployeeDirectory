@@ -5,9 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
 <div class="container">
+    <div class="row mb-4">
+        <div class="col-12 col-md-8 mx-auto">
+            @using (Html.BeginForm("Index", "Employee", FormMethod.Get, new { @class = "d-flex" }))
+            {
+                <div class="form-group me-3">
+                    <input type="text" id="search" class="form-control" placeholder="Search by name"/>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" type="submit">Submit</button>
+            }
+
+        </div>
+
+    </div>
     <div class="row">
         <div class="col-12 col-md-8 mx-auto">
             <h2>Employee Directory</h2>
@@ -30,8 +41,8 @@
                             <tr>
                                 <td>@e.Name</td>
                                 <td>@e.HiredDate</td>
-                                <td class="w-1">@Html.ActionLink("View","Details","Employee", new {id = @e.Id}, new {@class = "btn btn-outline-primary btn-sm"})</td>
-                                
+                                <td class="w-1">@Html.ActionLink("View", "Details", "Employee", new { id = @e.Id }, new { @class = "btn btn-outline-primary btn-sm" })</td>
+
                             </tr>
                         }
                         </tbody>
