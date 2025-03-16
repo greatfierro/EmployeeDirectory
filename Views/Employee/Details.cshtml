@@ -1,0 +1,23 @@
+﻿
+@model EmployeeDirectory.ViewModels.EmpViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 mx-auto">
+            <h2 class="display-3">@Model.Name</h2>
+            <p class="lead">Date Hired: @Model.HiredDate</p>
+            <p class="lead">Employed: YES</p>
+        </div>
+
+    </div>
+    
+
+
+</div>
